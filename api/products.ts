@@ -1,7 +1,7 @@
 const urlApi = "https://fakestoreapi.in/api/products";
 
 export type Product = {
-    id: number;
+    id: string;
     image: string;
     title: string,
     description: string,

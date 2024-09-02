@@ -1,15 +1,16 @@
-import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import { Stack } from 'expo-router';
+import { useReactQueryDevTools } from '@dev-plugins/react-query';
 
-const client = new QueryClient();
+const queryClient = new QueryClient();
 
-export default function App() {
-  
+export default function App() { 
+  useReactQueryDevTools(queryClient)
   
   return (
-    <QueryClientProvider client={client}>
+    <QueryClientProvider client={queryClient}>
         <View className="flex-1 mt-4">
           <Stack screenOptions={{
             headerStyle: {backgroundColor: 'white'},

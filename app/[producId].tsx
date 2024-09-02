@@ -1,5 +1,5 @@
 import { Text, View, StyleSheet, Image, ActivityIndicator, ScrollView} from "react-native";
-import { useLocalSearchParams } from "expo-router";
+import { Stack, useLocalSearchParams } from "expo-router";
 import { getProductDetail} from "@/api/products";
 import { useQuery } from "@tanstack/react-query";
 
@@ -21,6 +21,13 @@ export default function Detail() {
  
   return (
         <ScrollView>
+          <Stack.Screen
+          options={{
+          headerStyle: { backgroundColor: "#fff" },
+          headerTintColor: "black",
+          headerTitle: '',
+          }}
+      />
         <View className="justify-center items-center text-center">
             <Text className="text-black text-center font-bold text-xl">{data.product.title}</Text>
             <Image
