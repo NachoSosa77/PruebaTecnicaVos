@@ -13,7 +13,7 @@ export default function TabsLayout(){
             }}/>
             <Tabs.Screen name='cart' options={{title: 'Cart', tabBarIcon:({color})=>
                 <CartIcon color={color}/>
-            }}/>           
+            }}/>     
         </Tabs>
     )
 }

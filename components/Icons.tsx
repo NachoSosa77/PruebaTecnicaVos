@@ -8,3 +8,6 @@ export const CartIcon = (props) => (
     <FontAwesome5 name="shopping-cart" size={24} color="white" {...props}/>
 )
 
+export const QrIcon = (props) => (
+    <FontAwesome5 name="qrcode" size={24} color="black" {...props} />
+)

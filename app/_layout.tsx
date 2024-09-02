@@ -3,6 +3,9 @@ import { StatusBar } from 'expo-status-bar';
 import { View } from 'react-native';
 import { Stack } from 'expo-router';
 import { useReactQueryDevTools } from '@dev-plugins/react-query';
+import { Provider } from 'react-redux';
+import { store } from '../redux/store'
+
 
 const queryClient = new QueryClient();
 
@@ -10,7 +13,8 @@ export default function App() {
   useReactQueryDevTools(queryClient)
   
   return (
-    <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
         <View className="flex-1 mt-4">
           <Stack screenOptions={{
             headerStyle: {backgroundColor: 'white'},
@@ -20,5 +24,6 @@ export default function App() {
           <StatusBar style="dark" />
         </View>
       </QueryClientProvider>
+    </Provider>
   );
 }

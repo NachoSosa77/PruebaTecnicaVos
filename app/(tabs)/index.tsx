@@ -3,7 +3,6 @@ import { getProducts } from '../../api/products';
 import { useQuery } from "@tanstack/react-query";
 import ProductListItem from "../../components/ProductListItem";
 import type { Product } from '../../api/products';
-import { Stack } from "expo-router";
 
 
 export default function Home(){
