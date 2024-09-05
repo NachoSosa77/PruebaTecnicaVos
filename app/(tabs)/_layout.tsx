@@ -1,4 +1,4 @@
-import { CartIcon, HomeIcon } from "@/components/Icons";
+import { CartIcon, HomeIcon, CameraIcon } from "@/components/Icons";
 import { Tabs } from "expo-router";
 
 export default function TabsLayout(){
@@ -13,6 +13,9 @@ export default function TabsLayout(){
             }}/>
             <Tabs.Screen name='cart' options={{title: 'Cart', tabBarIcon:({color})=>
                 <CartIcon color={color}/>
+            }}/>
+            <Tabs.Screen name='camera' options={{title: 'Camera', tabBarIcon:({color})=>
+                <CameraIcon color={color}/>
             }}/>     
         </Tabs>
     )

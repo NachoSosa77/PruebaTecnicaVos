@@ -1,12 +1,13 @@
 const urlApi = "https://fakestoreapi.in/api/products";
 
 export type Product = {
-    id: string;
+    id: number;
     image: string;
     title: string,
     description: string,
     category: string,
     price: number;
+    quantity: number;
 }
 
 export async function getProducts(): Promise<Product[]> {

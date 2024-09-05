@@ -1,32 +1,28 @@
-import { useDispatch, useSelector } from "react-redux";
-import { View, Image, Text, ScrollView } from "react-native";
+import { View, Button, Text, FlatList, Image } from "react-native";
+import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-import { useEffect } from "react";
-import { Stack } from "expo-router";
+import CartListItems from "@/components/CartListItems";
+import { SafeAreaView } from "react-native-safe-area-context";
 
+export default function Cart() {
+  const cart = useSelector((state: RootState) => state.cart.cart);
+  const total = useSelector((state: RootState) => state.cart.total)
 
-export default function Cart(){
-    /* const cart = useSelector((state:RootState)=>state.cart)    
-    const dispatch = useDispatch(); */
-
-    /* useEffect(() => {
-        dispatch(getTotals());
-      }, [cart, dispatch]);
-       */
-    return (
-        <ScrollView>
-          <Stack.Screen
-          options={{
-          headerStyle: { backgroundColor: "#fff" },
-          headerTintColor: "black",
-          headerTitle: '',
-          }}
-        />
-        <View className="justify-center items-center text-center">
-            <Text className="flex-1 backdrop:text-black text-center font-bold text-xl mt-2">TITULO</Text>
-            <Text className="text-black/70 mt-4 text-center mb-4 text-base">IMAGEN</Text>
-            <Text>$ PRECIO</Text>
-        </View>
-        </ScrollView>
-    )
+  return (
+    <SafeAreaView>
+      <Text className="text-center text-2xl font-bold">Mi carrito</Text>
+      <FlatList
+        data={cart}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <View>
+            <CartListItems product={item} />
+          </View>
+        )}
+      />
+      <View className="active:opacity-70 border border-black rounded-xl p-2 m-2">
+         <Text className="text-xl font-bold text-center">Total: ${total}</Text>
+      </View>
+    </SafeAreaView>
+  );
 }

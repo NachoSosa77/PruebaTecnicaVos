@@ -3,6 +3,7 @@ import { getProducts } from '../../api/products';
 import { useQuery } from "@tanstack/react-query";
 import ProductListItem from "../../components/ProductListItem";
 import type { Product } from '../../api/products';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 
 export default function Home(){
@@ -22,14 +23,14 @@ export default function Home(){
 
   return (
    
-        <View className="flex-1 mt-5 bg-white">
+        <SafeAreaView>
             <FlatList
+            className="m-2"
             data={data}
-            contentContainerStyle={{ gap: 5, padding: 5 }}
-            keyExtractor={(item) => item.id }
+            keyExtractor={(item) => item.id.toString() }
             renderItem={({item}) => <ProductListItem product={item}/>}
             />
-        </View>
+        </SafeAreaView>
       
     )
 }
